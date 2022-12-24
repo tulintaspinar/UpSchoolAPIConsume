@@ -1,0 +1,24 @@
+﻿@model CategoryViewModel
+@{
+    ViewData["Title"] = "UpdateCategory";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container">
+    <form method="post">
+        <input type="hidden" asp-for="CategoryID" />
+        <br />
+        <label>Kategori Adı</label>
+        <input type="text" class="form-control" asp-for="CategoryName" />
+        <br />
+        <label>Kategori Açıklama</label>
+        <input type="text" class="form-control" asp-for="Description" />
+        <br />
+        <label>Durum</label>
+        <select asp-for="Status" class="form-control">
+            <option value="true">AKTİF</option>
+            <option value="false">PASİF</option>
+        </select>
+        <br />
+        <button type="submit" class="btn btn-outline-info">EKLE</button>
+    </form>
+</div>

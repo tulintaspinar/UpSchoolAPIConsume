@@ -1,0 +1,30 @@
+﻿@model List<CategoryViewModel>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <td>#</td>
+            <td>Kategori Adı</td>
+            <td>Durum</td>
+            <td>Güncelle</td>
+            <td>Sil</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            count++;
+            <tr>
+                <td>@count</td>
+                <td>@item.CategoryName</td>
+                <td>@item.Status</td>
+                <td><a href="/Category/DeleteCategory/@item.CategoryID" class="btn btn-outline-danger">SİL</a></td>
+                <td><a href="/Category/UpdateCategory/@item.CategoryID" class="btn btn-outline-success">GÜNCELLE</a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Category/AddCategory" class="btn btn-outline-primary">EKLE</a>
+</div>
